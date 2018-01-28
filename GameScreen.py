@@ -20,8 +20,10 @@ class GameScreen:
     def makeScreen(self, screenDef):
         self.canvas = Canvas(self.engine.window, height = 500, width = 600)
         self.canvas.pack()
-        Label(self.canvas, text = screenDef["title"]).place(x = 1, y = 1)
-        Label(self.canvas, text = screenDef['description']).place(x = 1, y = 20)
+        self.title = Label(self.canvas, text = screenDef["title"])
+        self.title.place(x = 1, y = 1)
+        self.description = Label(self.canvas, text = screenDef['description'])
+        self.description.place(x = 1, y = 20)
         self.northButton = Button(self.canvas, text = 'north', command = self.goNorth)
         self.eastButton = Button(self.canvas, text = 'east', command = self.goEast)
         self.southButton = Button(self.canvas, text = 'south', command = self.goSouth)
@@ -41,4 +43,33 @@ class GameScreen:
 
         if not screenDef["directions"][WEST]:
             self.westButton.config(state = DISABLED)
+
+    def updateScreen(self, screenDef):
+            self.title = Label(self.canvas, text = screenDef["title"])
+            self.title.place(x = 1, y = 1)
+            self.description = Label(self.canvas, text = screenDef['description'])
+            self.description.place(x = 1, y = 20)
+            if screenDef["directions"][NORTH]:
+                self.northButton.config(state = 'normal')
+
+            else:
+                self.northButton.config(state = DISABLED)
+
+            if screenDef["directions"][EAST]:
+                self.eastButton.config(state = 'normal')
+
+            else:
+                self.eastButton.config(state = DISABLED)
+
+            if screenDef["directions"][SOUTH]:
+                self.southButton.config(state = 'normal')
+
+            else:
+                self.southButton.config(state = DISABLED)
+
+            if screenDef["directions"][WEST]:
+                self.westButton.config(state = 'normal')
+
+            else:
+                self.westButton.config(state = DISABLED)
         

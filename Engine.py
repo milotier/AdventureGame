@@ -14,8 +14,7 @@ class Engine:
         self.gameScreen.makeScreen(self.world.worldDef[self.world.xCoordinate][self.world.yCoordinate])
 
     def nextRoom(self):
-        self.gameScreen.canvas.destroy()
-        self.gameScreen.makeScreen(self.world.worldDef[self.world.xCoordinate][self.world.yCoordinate])
+        self.gameScreen.updateScreen(self.world.worldDef[self.world.xCoordinate][self.world.yCoordinate])
 
     def askNextRoom(self, direction):
         if direction == NORTH:
