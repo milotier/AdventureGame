@@ -12,30 +12,39 @@ class World:
         self.yCoordinate = 0
         self.worldDef = [
                     [{"title": "field (0,0)",
-                     "description": "this is a test field.",
+                     "description": "this is a test field with a item.",
+                     'items': ['testItem'],
                      "directions": (False, True, True, False)},
                     {"title": "field (0,1)",
+                     'items': [],
                      "description": "this is a test field.",
                      "directions": (True, True, True, False)},
                     {"title": "field (0,2)",
+                     'items': [],
                      "description": "this is a test field.",
                      "directions": (True, True, False, False)}], 
                     [{"title": "field (1,0)",
+                     'items': [],
                      "description": "this is a test field.",
                      "directions": (False, True, True, True)},
                     {"title": "field (1,1)",
+                     'items': [],
                      "description": "this is a test field.",
                      "directions": (True, True, True, True)},
                     {"title": "field (1,2)",
+                     'items': [],
                      "description": "this is a test field.",
                      "directions": (True, True, False, True)}],
                     [{"title": "field (2,0)",
+                     'items': [],
                      "description": "this is a test field.",
                      "directions": (False, False, True, True)},
                     {"title": "field (2,1)",
+                     'items': [],
                      "description": "this is a test field.",
                      "directions": (True, False, True, True)},
                     {"title": "field (2,2)",
+                     'items': [],
                      "description": "this is a test field.",
                      "directions": (True, False, False, True)}],
                     ]
@@ -56,4 +65,10 @@ class World:
         elif direction == WEST:
             self.xCoordinate -= 1
             self.engine.nextRoom()
+
+    def removeItemFromCurrentLocation(self, item):
+        self.worldDef[self.xCoordinate][self.yCoordinate]['items'].remove(item)
+        
+
+    
     
