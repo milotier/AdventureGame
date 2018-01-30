@@ -40,11 +40,14 @@ class GameScreen:
         self.eastButton.place(x = 87, y = 412)
         self.southButton.place(x = 50, y = 450)
         self.westButton.place(x = 17, y = 412)
+        
         if len(screenDef['items']) > 0:
-            toPickUp = lambda item = screenDef["items"][0]: self.onPickUpButtonClick(item)
+            selectedItem = screenDef["items"][0]
         else:
-            toPickUp =  ''
+            selectedItem =  ''
+        toPickUp = lambda item = selectedItem: self.onPickUpButtonClick(item)
         self.pickingUp = Button(self.canvas, text = 'pick up', command = toPickUp)
+
         self.pickingUp.place(x = 150, y = 375)
         if len(screenDef['items']) == 0:
             self.pickingUp.config(state = DISABLED)
@@ -66,6 +69,8 @@ class GameScreen:
                 toPickUp = lambda item = screenDef["items"][0]: self.onPickUpButtonClick(item)
             else:
                 toPickUp =  ''
+            self.pickingUp.config(command=toPickUp)
+            self.itemList.delete(0)
             for item in inventory:
                 self.itemList.insert(END, item)
             self.title.destroy()
