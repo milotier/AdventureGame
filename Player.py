@@ -1,4 +1,4 @@
-from tkinter import *
+from Tkinter import *
 
 class Player:
     def __init__(self, engine):

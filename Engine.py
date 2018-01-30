@@ -1,4 +1,4 @@
-from tkinter import *
+from Tkinter import *
 from GameScreen import *
 from World import *
 from Player import *
@@ -38,3 +38,5 @@ class Engine:
         
 game = Engine()
 game.start()
+
+game.window.mainloop()

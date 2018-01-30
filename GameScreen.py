@@ -1,4 +1,4 @@
-from tkinter import *
+from Tkinter import *
 from World import *
 
 class GameScreen:

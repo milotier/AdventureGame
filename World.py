@@ -1,4 +1,4 @@
-from tkinter import *
+from Tkinter import *
 
 NORTH = 0
 EAST = 1
