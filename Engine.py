@@ -14,6 +14,7 @@ class Engine:
 
     def start(self):
         self.gameScreen.makeScreen(self.world.worldDef[self.world.xCoordinate][self.world.yCoordinate], self.player.inventory)
+        self.window.mainloop()
 
     def nextRoom(self):
         self.gameScreen.updateScreen(self.world.worldDef[self.world.xCoordinate][self.world.yCoordinate], self.player.inventory)
@@ -38,5 +39,3 @@ class Engine:
         
 game = Engine()
 game.start()
-
-game.window.mainloop()
