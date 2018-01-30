@@ -12,8 +12,8 @@ class World:
         self.yCoordinate = 0
         self.worldDef = [
                     [{"title": "field (0,0)",
-                     "description": "this is a test field with a item.",
-                     'items': ['testItem'],
+                     "description": "this is a test field.",
+                     'items': [],
                      "directions": (False, True, True, False)},
                     {"title": "field (0,1)",
                      'items': [],
@@ -28,8 +28,8 @@ class World:
                      "description": "this is a test field.",
                      "directions": (False, True, True, True)},
                     {"title": "field (1,1)",
-                     'items': [],
-                     "description": "this is a test field.",
+                     'items': ['test item'],
+                     "description": "this is a test field with an item.",
                      "directions": (True, True, True, True)},
                     {"title": "field (1,2)",
                      'items': [],
