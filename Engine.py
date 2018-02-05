@@ -33,9 +33,16 @@ class Engine:
             self.world.giveRoom(WEST)
 
     def pickUpItem(self, item):
+        selectedItem = self.world.getItemFromIndex(item)
         self.world.removeItemFromCurrentLocation(item)
-        self.player.addItemToInventory(item)
-        self.gameScreen.updateScreen(self.world.worldDef[self.world.xCoordinate][self.world.yCoordinate], self.player.inventory)       
+        self.player.addItemToInventory(selectedItem)
+        self.nextRoom()    
+
+    def dropItem(self, item):
+        selectedItem = self.player.getItemFromIndex(item)
+        self.world.addItemToCurrentLocation(selectedItem)
+        self.player.removeItemFromInventory(selectedItem)
+        self.nextRoom()
         
 game = Engine()
 game.start()

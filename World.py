@@ -1,4 +1,5 @@
 from Tkinter import *
+from Player import *
 
 NORTH = 0
 EAST = 1
@@ -44,8 +45,8 @@ class World:
                      "description": "this is a test field.",
                      "directions": (True, False, True, True)},
                     {"title": "field (2,2)",
-                     'items': [],
-                     "description": "this is a test field.",
+                     'items': ['test item 2'],
+                     "description": "this is a test field with an item.",
                      "directions": (True, False, False, True)}],
                     ]
 
@@ -66,8 +67,17 @@ class World:
             self.xCoordinate -= 1
             self.engine.nextRoom()
 
+    def getItemFromIndex(self, index):
+        item = self.worldDef[self.xCoordinate][self.yCoordinate]['items'][index[0]]
+        return item
+
     def removeItemFromCurrentLocation(self, item):
-        self.worldDef[self.xCoordinate][self.yCoordinate]['items'].remove(item)
+        removeItem = self.worldDef[self.xCoordinate][self.yCoordinate]['items'][item[0]]
+        self.worldDef[self.xCoordinate][self.yCoordinate]['items'].remove(removeItem)
+
+    def addItemToCurrentLocation(self, item):
+        addItem = item
+        self.worldDef[self.xCoordinate][self.yCoordinate]['items'].append(addItem)
         
 
     
