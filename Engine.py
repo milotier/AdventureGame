@@ -13,7 +13,8 @@ class Engine:
         self.player = Player(self)
 
     def start(self):
-        self.gameScreen.makeScreen(self.world.worldDef[self.world.xCoordinate][self.world.yCoordinate], self.player.inventory)
+        self.gameScreen.makeScreen(self.world.worldDef[self.world.xCoordinate][self.world.yCoordinate])
+        self.gameScreen.updateScreen(self.world.worldDef[self.world.xCoordinate][self.world.yCoordinate], self.player.inventory)
         self.window.mainloop()
 
     def nextRoom(self):

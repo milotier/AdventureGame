@@ -13,5 +13,4 @@ class Player:
         self.inventory.append(item)
 
     def removeItemFromInventory(self, item):
-        print item
         self.inventory.remove(item)
