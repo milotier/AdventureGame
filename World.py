@@ -123,10 +123,8 @@ class World:
                 if screenDef['directions'][direction] == obstacle:
                     obstacleSide = currentSide
                 currentSide += 1
-            print obstacleSide
         
         return obstacleSide
-
 
     def getObstacleFromCurrentLocation(self, screenDef):
         for direction in screenDef['directions']:
